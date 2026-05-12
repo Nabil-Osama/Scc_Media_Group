@@ -1,0 +1,196 @@
+.ip-page {
+    position: relative;
+    background: var(--deep-blue);
+}
+
+.ip-page .header-content h1 {
+    font-size: 5rem;
+    font-weight: 900;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.glitch-effect {
+    position: relative;
+}
+
+.glitch-effect::before,
+.glitch-effect::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.glitch-effect::before {
+    left: 2px;
+    text-shadow: -2px 0 #ef4444;
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+.glitch-effect::after {
+    left: -2px;
+    text-shadow: -2px 0 #3b82f6;
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(2px, 9999px, 81px, 0); }
+    20% { clip: rect(62px, 9999px, 12px, 0); }
+    40% { clip: rect(96px, 9999px, 54px, 0); }
+    60% { clip: rect(10px, 9999px, 93px, 0); }
+    80% { clip: rect(14px, 9999px, 44px, 0); }
+    100% { clip: rect(84px, 9999px, 17px, 0); }
+}
+
+.ip-content {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    max-width: 1100px;
+    margin: 0 auto 80px;
+}
+
+.ip-feature {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    position: relative;
+}
+
+.ip-feature.reverse {
+    flex-direction: row-reverse;
+}
+
+.hologram-placeholder {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1 / 1;
+    background: var(--glass-bg);
+    border: 1px solid var(--vibrant-blue);
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(26, 115, 232, 0.2) inset, 0 0 30px rgba(26, 115, 232, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.ip-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 5;
+    transition: transform 0.5s ease;
+}
+
+.ip-feature:hover .ip-img {
+    transform: scale(1.05);
+}
+
+.hologram-scan {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -20%;
+    height: 20%;
+    background: linear-gradient(to bottom, transparent, var(--vibrant-blue), transparent);
+    animation: scan 3s linear infinite;
+}
+
+.hologram-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border: 2px dashed rgba(56, 189, 248, 0.4);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+}
+
+.feature-text {
+    flex: 1;
+}
+
+.feature-text h3 {
+    font-size: 2.2rem;
+    color: #f0f9ff;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.feature-text p {
+    font-size: 1.15rem;
+    color: #94a3b8;
+    line-height: 1.8;
+}
+
+.ip-shield-banner {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(0deg, rgba(2, 6, 23, 1) 0%, rgba(15, 23, 42, 0) 100%);
+    border-top: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.shield-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.ip-shield-banner h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.ip-shield-banner .creative-btn {
+    background: #38bdf8;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+}
+
+.ip-shield-banner .creative-btn:hover {
+    background: #0ea5e9;
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.8);
+}
+
+@keyframes scan {
+    0% { transform: translateY(-100%); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(600%); opacity: 0; }
+}
+
+@keyframes rotate {
+    100% { transform: rotate(360deg); }
+}
+
+.slide-up-anim {
+    animation: slideUpFade 1s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+@keyframes slideUpFade {
+    0% { opacity: 0; transform: translateY(50px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+
+@media (max-width: 900px) {
+    .ip-feature, .ip-feature.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hologram-placeholder {
+        max-width: 300px;
+    }
+}

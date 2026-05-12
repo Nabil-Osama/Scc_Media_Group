@@ -1,0 +1,189 @@
+.marketing-page {
+    position: relative;
+    background: var(--deep-blue);
+}
+
+/* Marketing specific styles */
+.marketing-page .header-content h1 {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 5rem;
+    font-weight: 900;
+}
+
+.marketing-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto 100px;
+}
+
+.showcase-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    backdrop-filter: blur(12px);
+    transition: var(--transition-premium);
+}
+
+.showcase-card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.showcase-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    border-color: rgba(139, 92, 246, 0.4);
+}
+
+.img-box {
+    flex: 1;
+    min-height: 280px;
+    aspect-ratio: 16 / 10;
+    border-radius: 20px;
+    background: #1e293b;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.showcase-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.5s ease;
+}
+
+.showcase-card:hover .showcase-img {
+    transform: scale(1.05);
+}
+
+.dynamic-shape {
+    position: absolute;
+    filter: blur(40px);
+    opacity: 0.6;
+    animation: drift 10s infinite alternate;
+}
+
+.shape-1 { width: 200px; height: 200px; background: #3b82f6; top: -50px; left: -50px; border-radius: 50%; }
+.shape-2 { width: 250px; height: 250px; background: #ec4899; bottom: -50px; right: -50px; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation-delay: 2s; }
+.shape-3 { width: 180px; height: 180px; background: #8b5cf6; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 40%; animation-delay: 1s; }
+
+.photo-label {
+    position: relative;
+    z-index: 10;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    padding: 15px 30px;
+    border: 2px dashed rgba(255,255,255,0.3);
+    border-radius: 12px;
+}
+
+.card-info {
+    flex: 1;
+}
+
+.card-info h2 {
+    font-size: 2.2rem;
+    color: #f8fafc;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.card-info h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--vibrant-blue);
+    border-radius: 2px;
+}
+
+.card-info p {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    line-height: 1.8;
+}
+
+.marketing-bottom-cta {
+    position: relative;
+    padding: 80px 40px;
+    text-align: center;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    margin: 0 5%;
+}
+
+.marketing-bottom-cta h2 {
+    font-size: 2.6rem;
+    color: #fff;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.pulse-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 70%);
+    z-index: 1;
+    animation: throb 4s infinite alternate;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes drift {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(30px, -30px) rotate(45deg); }
+}
+
+@keyframes throb {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    100% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
+}
+
+.float-anim {
+    animation: fadeUp 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@media (max-width: 992px) {
+    .showcase-card, .showcase-card:nth-child(even) {
+        flex-direction: column;
+    }
+    .img-box {
+        width: 100%;
+        min-height: 220px;
+        aspect-ratio: 16 / 10;
+    }
+    .card-info {
+        text-align: center;
+    }
+    .card-info h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

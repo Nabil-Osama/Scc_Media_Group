@@ -1,0 +1,157 @@
+.floating-shapes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Circles */
+.floating-shapes__circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid;
+  opacity: 0.08;
+}
+
+.floating-shapes__circle--1 {
+  width: 80px;
+  height: 80px;
+  border-color: var(--vibrant-blue);
+  top: 20%;
+  left: 5%;
+  animation: float-shape 12s ease-in-out infinite;
+}
+
+.floating-shapes__circle--2 {
+  width: 50px;
+  height: 50px;
+  border-color: var(--white);
+  top: 60%;
+  right: 8%;
+  animation: float-shape 15s ease-in-out infinite 3s;
+}
+
+.floating-shapes__circle--3 {
+  width: 120px;
+  height: 120px;
+  border-color: var(--vibrant-blue);
+  bottom: 10%;
+  left: 40%;
+  animation: float-shape 18s ease-in-out infinite 6s;
+}
+
+/* Triangles */
+.floating-shapes__triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0.1;
+}
+
+.floating-shapes__triangle--1 {
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-bottom: 31px solid var(--vibrant-blue);
+  top: 15%;
+  right: 20%;
+  animation: float-rotate-shape 20s linear infinite;
+}
+
+.floating-shapes__triangle--2 {
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 21px solid var(--white);
+  top: 70%;
+  left: 15%;
+  animation: float-rotate-shape 16s linear infinite reverse;
+}
+
+.floating-shapes__triangle--3 {
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 43px solid var(--vibrant-blue);
+  bottom: 25%;
+  right: 30%;
+  animation: float-rotate-shape 22s linear infinite 5s;
+}
+
+/* Dots */
+.floating-shapes__dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--vibrant-blue);
+  opacity: 0.15;
+}
+
+.floating-shapes__dot--1 {
+  top: 30%;
+  left: 25%;
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+.floating-shapes__dot--2 {
+  top: 50%;
+  right: 15%;
+  animation: twinkle 5s ease-in-out infinite 1s;
+}
+
+.floating-shapes__dot--3 {
+  bottom: 35%;
+  left: 60%;
+  animation: twinkle 3.5s ease-in-out infinite 2s;
+}
+
+.floating-shapes__dot--4 {
+  top: 80%;
+  left: 80%;
+  animation: twinkle 4.5s ease-in-out infinite 3s;
+}
+
+/* Squares */
+.floating-shapes__square {
+  position: absolute;
+  border: 2px solid;
+  opacity: 0.08;
+}
+
+.floating-shapes__square--1 {
+  width: 30px;
+  height: 30px;
+  border-color: var(--vibrant-blue);
+  top: 40%;
+  left: 8%;
+  animation: float-rotate-shape 14s linear infinite;
+}
+
+.floating-shapes__square--2 {
+  width: 20px;
+  height: 20px;
+  border-color: var(--white);
+  bottom: 20%;
+  right: 12%;
+  animation: float-rotate-shape 10s linear infinite reverse;
+}
+
+/* Animations */
+@keyframes float-shape {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-30px) translateX(15px); }
+  50% { transform: translateY(-15px) translateX(-10px); }
+  75% { transform: translateY(-25px) translateX(8px); }
+}
+
+@keyframes float-rotate-shape {
+  0% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(90deg) translateY(-20px); }
+  50% { transform: rotate(180deg) translateY(-10px); }
+  75% { transform: rotate(270deg) translateY(-25px); }
+  100% { transform: rotate(360deg) translateY(0); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.5); }
+}

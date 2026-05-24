@@ -37,20 +37,42 @@ const WhyChooseUs = () => {
         }
     ]
 
-    const [mouse, setMouse] = useState({ x: 50, y: 50 })
+    const spotlightRef = useRef(null)
 
     useEffect(() => {
         const section = containerRef.current
         if (!section) return
+
+        const initSpotlight = () => {
+            const rect = section.getBoundingClientRect()
+            const cx = rect.width / 2
+            const cy = rect.height / 2
+            if (spotlightRef.current) {
+                spotlightRef.current.style.transform = `translate3d(${cx - 600}px, ${cy - 400}px, 0)`
+            }
+        }
+        
+        requestAnimationFrame(initSpotlight)
+
         const handleMove = (e) => {
             const rect = section.getBoundingClientRect()
-            setMouse({
-                x: ((e.clientX - rect.left) / rect.width) * 100,
-                y: ((e.clientY - rect.top) / rect.height) * 100
+            const x = e.clientX - rect.left
+            const y = e.clientY - rect.top
+            
+            requestAnimationFrame(() => {
+                if (spotlightRef.current) {
+                    spotlightRef.current.style.transform = `translate3d(${x - 600}px, ${y - 400}px, 0)`
+                }
             })
         }
-        section.addEventListener('mousemove', handleMove)
-        return () => section.removeEventListener('mousemove', handleMove)
+        
+        section.addEventListener('mousemove', handleMove, { passive: true })
+        window.addEventListener('resize', initSpotlight, { passive: true })
+        
+        return () => {
+            section.removeEventListener('mousemove', handleMove)
+            window.removeEventListener('resize', initSpotlight)
+        }
     }, [])
 
     const handleMouseMove = (e, card) => {
@@ -64,25 +86,28 @@ const WhyChooseUs = () => {
         const rotateX = (y - centerY) / 10;
         const rotateY = (centerX - x) / 10;
 
-        card.style.setProperty('--mx', `${x}px`);
-        card.style.setProperty('--my', `${y}px`);
-        card.style.setProperty('--rx', `${rotateX}deg`);
-        card.style.setProperty('--ry', `${rotateY}deg`);
+        requestAnimationFrame(() => {
+            card.style.setProperty('--mx', `${x}px`);
+            card.style.setProperty('--my', `${y}px`);
+            card.style.setProperty('--rx', `${rotateX}deg`);
+            card.style.setProperty('--ry', `${rotateY}deg`);
+        });
     };
 
     const handleMouseLeave = (card) => {
-        card.style.setProperty('--rx', `0deg`);
-        card.style.setProperty('--ry', `0deg`);
+        requestAnimationFrame(() => {
+            card.style.setProperty('--rx', `0deg`);
+            card.style.setProperty('--ry', `0deg`);
+        });
     };
 
     return (
         <section
             className="why-choose-us"
             ref={containerRef}
-            style={{ '--mx': `${mouse.x}%`, '--my': `${mouse.y}%` }}
         >
             <div className="why-choose-us__bg">
-                <div className="why-choose-us__bg-gradient"></div>
+                <div className="why-choose-us__bg-gradient" ref={spotlightRef}></div>
                 <div className="why-choose-us__bg-grid"></div>
                 <div className="why-choose-us__bg-orb why-choose-us__bg-orb--1 morph-blob"></div>
                 <div className="why-choose-us__bg-orb why-choose-us__bg-orb--2 morph-blob"></div>

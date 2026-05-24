@@ -11,13 +11,26 @@ const Hero = () => {
     const visualRef = useRef(null)
     const primaryBtnRef = useRef(null)
     const secondaryBtnRef = useRef(null)
-    
+
     const { useHeroAnimation, useMagneticButton } = useGsapAnimations()
 
     // Initialize animations
     useHeroAnimation(containerRef, textRef, visualRef)
     useMagneticButton(primaryBtnRef)
     useMagneticButton(secondaryBtnRef)
+
+    // Helper function to colorize individual letters for matching logo style
+    const renderStyledText = (text, blueIndices) => {
+        return text.split('').map((char, index) => {
+            if (char === ' ') return <span key={index}> </span>;
+            const isBlue = blueIndices.includes(index);
+            return (
+                <span key={index} className={isBlue ? 'hero__char--blue' : 'hero__char--white'}>
+                    {char}
+                </span>
+            );
+        });
+    };
 
     return (
         <section className="hero" ref={containerRef}>
@@ -39,8 +52,12 @@ const Hero = () => {
                     </div>
                     <h1 className="hero__title">
                         <span className="hero__title-main">
-                            {t('hero.title_part1')} 
-                            <span className="hero__title-highlight"> {t('hero.title_highlight')}</span>
+                            <span className="hero__logo-scc">
+                                {renderStyledText(t('hero.title_part1'), [0, 1])}
+                            </span>
+                            <span className="hero__title-highlight">
+                                {renderStyledText(t('hero.title_highlight'), [2, 8])}
+                            </span>
                         </span>
                         <span className="hero__title-sub">{t('hero.title_part2')}</span>
                     </h1>
@@ -64,13 +81,16 @@ const Hero = () => {
                     <div className="hero__visual-wrapper">
                         <div className="hero__visual-glow morph-blob"></div>
                         <div className="hero__image-container">
-                            <img 
-                                src="/images/brand-visual.png" 
-                                alt="SCC Media Group Brand Visual" 
+                            <div className="hero__border-beam-container">
+                                <div className="hero__border-beam"></div>
+                            </div>
+                            <img
+                                src="/images/brand-visual.png"
+                                alt="SCC Media Group Brand Visual"
                                 className="hero__brand-image"
                             />
                             <div className="hero__image-overlay"></div>
-                            
+
                             <div className="hero__floating-elements">
                                 <div className="hero__float-badge float-badge-1 float-animation">
                                     <span>💰</span>

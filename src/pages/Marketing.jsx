@@ -16,7 +16,7 @@ const Marketing = () => {
             <div className="marketing-showcase">
                 <div className="showcase-card float-anim delay-1">
                     <div className="img-box">
-                        <img src="/images/marketing-ads.png" alt={t('marketingPage.adsTitle')} className="showcase-img" />
+                        <img src="/images/marketing-ads.png" alt={t('marketingPage.adsTitle')} className="showcase-img" loading="lazy" />
                     </div>
                     <div className="card-info">
                         <h2>{t('marketingPage.adsTitle')}</h2>
@@ -26,7 +26,7 @@ const Marketing = () => {
 
                 <div className="showcase-card float-anim delay-2">
                     <div className="img-box">
-                        <img src="/images/marketing-campaign.png" alt={t('marketingPage.campaignTitle')} className="showcase-img" />
+                        <img src="/images/marketing-campaign.png" alt={t('marketingPage.campaignTitle')} className="showcase-img" loading="lazy" />
                     </div>
                     <div className="card-info">
                         <h2>{t('marketingPage.campaignTitle')}</h2>
@@ -36,7 +36,7 @@ const Marketing = () => {
 
                 <div className="showcase-card float-anim delay-3">
                     <div className="img-box">
-                        <img src="/images/marketing-influencer.png" alt={t('marketingPage.influencerTitle')} className="showcase-img" />
+                        <img src="/images/marketing-influencer.png" alt={t('marketingPage.influencerTitle')} className="showcase-img" loading="lazy" />
                     </div>
                     <div className="card-info">
                         <h2>{t('marketingPage.influencerTitle')}</h2>
@@ -46,7 +46,7 @@ const Marketing = () => {
 
                 <div className="showcase-card float-anim delay-4">
                     <div className="img-box">
-                        <img src="/images/marketing-photo.png" alt={t('marketingPage.photoTitle')} className="showcase-img" />
+                        <img src="/images/marketing-photo.png" alt={t('marketingPage.photoTitle')} className="showcase-img" loading="lazy" />
                     </div>
                     <div className="card-info">
                         <h2>{t('marketingPage.photoTitle')}</h2>

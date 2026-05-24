@@ -1,0 +1,488 @@
+/* ===== PRELOADER STYLESHEET (High-Tech, Premium Arabic Theme) ===== */
+
+.preloader-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    overflow: hidden;
+    background: transparent;
+}
+
+/* ── Luxury Split Gates ── */
+.preloader-gate {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background: #070914;
+    border-color: rgba(26, 115, 232, 0.05);
+    z-index: 5;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+}
+
+.preloader-gate--left {
+    left: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.03);
+    transform-origin: left center;
+}
+
+.preloader-gate--right {
+    right: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.03);
+    transform-origin: right center;
+}
+
+/* ── Central Splitting Logo Core (Positioned at the bottom to prevent card overlap) ── */
+.preloader-logo-container {
+    position: absolute;
+    bottom: 5%;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.preloader-logo-wrapper {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Rotating outer cyber ring */
+.preloader-logo-ring {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    border: 2px dashed rgba(26, 115, 232, 0.3);
+    border-top-color: #1a73e8;
+    border-bottom-color: #ec4899;
+    animation: preloader-ring-rotate 10s linear infinite;
+    z-index: 1;
+}
+
+@keyframes preloader-ring-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.preloader-logo-core-glow {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(26, 115, 232, 0.4) 0%, transparent 70%);
+    filter: blur(8px);
+    z-index: 0;
+    animation: preloader-logo-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes preloader-logo-pulse {
+    0% { transform: scale(0.9); opacity: 0.6; }
+    100% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Halves container */
+.preloader-logo-halves {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: visible;
+    display: flex;
+    z-index: 2;
+}
+
+.preloader-logo-half {
+    position: absolute;
+    width: 60px;
+    height: 120px;
+    overflow: hidden;
+    background: #080A20;
+    border: 2px solid rgba(26, 115, 232, 0.4);
+    box-shadow: 0 0 30px rgba(26, 115, 232, 0.25);
+    transition: border-color 0.5s ease;
+}
+
+.preloader-logo-half--left {
+    left: 0;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+    border-right: none;
+}
+
+.preloader-logo-half--left img {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    max-width: none;
+}
+
+.preloader-logo-half--right {
+    right: 0;
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
+    border-left: none;
+}
+
+.preloader-logo-half--right img {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    max-width: none;
+}
+
+/* ── Central Interface Content ── */
+.preloader-content {
+    position: relative;
+    z-index: 8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+/* Ambient mesh background */
+.preloader-ambient-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(26, 115, 232, 0.04), transparent 70%);
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* Digital cyber grid */
+.preloader-cyber-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(to right, rgba(26, 115, 232, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(26, 115, 232, 0.04) 1px, transparent 1px);
+    background-size: 5rem 5rem;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ── Section Badge ── */
+.preloader-badge-container {
+    margin-bottom: 45px;
+    z-index: 2;
+}
+
+.preloader-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 50px;
+    background: rgba(26, 115, 232, 0.08);
+    border: 1px solid rgba(26, 115, 232, 0.25);
+    padding: 10px 24px;
+    font-size: 0.85rem;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #4da3ff;
+    box-shadow: 0 0 25px rgba(26, 115, 232, 0.15);
+}
+
+.preloader-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4da3ff;
+    animation: preloader-dot-pulse 1.5s infinite alternate;
+}
+
+@keyframes preloader-dot-pulse {
+    0% { transform: scale(0.8); opacity: 0.5; box-shadow: 0 0 0 0px rgba(77, 163, 255, 0.7); }
+    100% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 8px 3px rgba(77, 163, 255, 0.3); }
+}
+
+/* ── Services Cards Slider ── */
+.preloader-slider-container {
+    position: relative;
+    width: 92%;
+    max-width: 480px;
+    height: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.preloader-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(8, 10, 24, 0.75);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: 30px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    border-bottom: 2px solid rgba(26, 115, 232, 0.15);
+}
+
+.preloader-card-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 28px;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.preloader-card-icon-wrap {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    margin-bottom: 18px;
+}
+
+/* Custom icon sizes & color utilities inside preloader */
+.bg-gradient-to-br {
+    background: linear-gradient(135deg, var(--tw-gradient-stops));
+}
+.from-orange-500 { --tw-gradient-from: #f97316; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(249, 115, 22, 0)); }
+.to-red-500 { --tw-gradient-to: #ef4444; }
+
+.from-indigo-500 { --tw-gradient-from: #6366f1; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(99, 102, 241, 0)); }
+.to-purple-500 { --tw-gradient-to: #a855f7; }
+
+.from-emerald-500 { --tw-gradient-from: #10b981; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(16, 185, 129, 0)); }
+.to-teal-500 { --tw-gradient-to: #14b8a6; }
+
+.from-yellow-500 { --tw-gradient-from: #eab308; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(234, 179, 8, 0)); }
+.to-amber-500 { --tw-gradient-to: #f59e0b; }
+
+.from-sky-500 { --tw-gradient-from: #0ea5e9; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(14, 165, 233, 0)); }
+.to-blue-500 { --tw-gradient-to: #3b82f6; }
+
+.from-purple-500 { --tw-gradient-from: #a855f7; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(168, 85, 247, 0)); }
+.to-pink-500 { --tw-gradient-to: #ec4899; }
+
+.from-pink-500 { --tw-gradient-from: #ec4899; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(236, 72, 153, 0)); }
+.to-rose-500 { --tw-gradient-to: #f43f5e; }
+
+.from-teal-500 { --tw-gradient-from: #14b8a6; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(20, 184, 166, 0)); }
+.to-cyan-500 { --tw-gradient-to: #06b6d4; }
+
+.preloader-card-icon {
+    font-size: 1.65rem;
+    color: #ffffff;
+}
+
+.preloader-card-title {
+    position: relative;
+    z-index: 1;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+.preloader-card-desc {
+    position: relative;
+    z-index: 1;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 8px 0 0;
+    max-width: 90%;
+}
+
+/* ── Cyber progress log & bars ── */
+.preloader-progress-container {
+    margin-top: 50px;
+    width: 92%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 0 10px;
+}
+
+.preloader-progress-text-wrap {
+    height: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.preloader-step-text {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.preloader-progress-track {
+    width: 100%;
+    height: 6px;
+    border-radius: 20px;
+    background: rgba(8, 10, 24, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.preloader-progress-bar {
+    height: 100%;
+    border-radius: 20px;
+    width: 0%;
+}
+
+/* Gradient Utility Classes */
+.bg-gradient-to-r {
+    background: linear-gradient(90deg, var(--tw-gradient-stops));
+}
+
+/* ── Mobile Responsive Adaptability ── */
+@media (max-width: 600px) {
+    .preloader-logo-container {
+        bottom: 3%;
+        top: auto;
+    }
+
+    .preloader-badge {
+        padding: 8px 18px;
+        font-size: 0.75rem;
+    }
+    
+    .preloader-badge-container {
+        margin-bottom: 35px;
+    }
+
+    .preloader-slider-container {
+        height: 220px;
+    }
+
+    .preloader-card {
+        padding: 22px;
+        border-radius: 24px;
+    }
+
+    .preloader-card-icon-wrap {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        margin-bottom: 12px;
+    }
+
+    .preloader-card-icon {
+        font-size: 1.4rem;
+    }
+
+    .preloader-card-title {
+        font-size: 1.25rem;
+    }
+
+    .preloader-card-desc {
+        font-size: 0.83rem;
+        line-height: 1.6;
+        max-width: 100%;
+    }
+
+    .preloader-step-text {
+        font-size: 0.92rem;
+    }
+
+    .preloader-progress-container {
+        margin-top: 40px;
+    }
+    
+    .preloader-logo-ring {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .preloader-logo-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .preloader-logo-halves {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .preloader-logo-half {
+        width: 40px;
+        height: 80px;
+    }
+    
+    .preloader-logo-half--left {
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+    }
+    
+    .preloader-logo-half--left img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .preloader-logo-half--right {
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
+    }
+    
+    .preloader-logo-half--right img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .preloader-logo-core-glow {
+        width: 90px;
+        height: 90px;
+    }
+}
+

@@ -7,3 +7,26 @@ main {
   position: relative;
   z-index: 1;
 }
+
+.route-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  position: relative;
+}
+
+.route-loader::after {
+  content: "";
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(26, 115, 232, 0.1);
+  border-left-color: var(--vibrant-blue);
+  border-radius: 50%;
+  animation: route-spin 1s linear infinite;
+  box-shadow: 0 0 20px rgba(26, 115, 232, 0.2);
+}
+
+@keyframes route-spin {
+  to { transform: rotate(360deg); }
+}

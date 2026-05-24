@@ -15,8 +15,11 @@ const ContentProduction = () => {
 
             <div className="content-stages">
                 <div className="stage-card reveal-left">
+                    <div className="stage-card-border-beam-container">
+                        <div className="stage-card-border-beam"></div>
+                    </div>
                     <div className="stage-icon">
-                        <img src="/images/script-writing.png" alt="" />
+                        <img src="/images/script-writing.png" alt="" loading="lazy" />
                     </div>
                     <div className="stage-info">
                         <h2>{t('contentProductionPage.ideasTitle')}</h2>
@@ -25,8 +28,11 @@ const ContentProduction = () => {
                 </div>
 
                 <div className="stage-card reveal-top">
+                    <div className="stage-card-border-beam-container">
+                        <div className="stage-card-border-beam"></div>
+                    </div>
                     <div className="stage-icon">
-                        <img src="/images/production-studio.png" alt="" />
+                        <img src="/images/production-studio.png" alt="" loading="lazy" />
                     </div>
                     <div className="stage-info">
                         <h2>{t('contentProductionPage.productionTitle')}</h2>
@@ -35,8 +41,11 @@ const ContentProduction = () => {
                 </div>
 
                 <div className="stage-card reveal-right">
+                    <div className="stage-card-border-beam-container">
+                        <div className="stage-card-border-beam"></div>
+                    </div>
                     <div className="stage-icon">
-                        <img src="/images/creator-growth.png" alt="" />
+                        <img src="/images/creator-growth.png" alt="" loading="lazy" />
                     </div>
                     <div className="stage-info">
                         <h2>{t('contentProductionPage.empowerTitle')}</h2>
@@ -51,40 +60,40 @@ const ContentProduction = () => {
                     {/* First Large Image - Occupies Top Left 2x2 */}
                     <div className="gallery-item clip-anim col-span-2 row-span-2">
                         <div className="photo-placeholder">
-                            <img src="/images/content-brainstorm.png" alt={t('contentProductionPage.placeholders.brainstorm')} className="gallery-img" />
+                            <img src="/images/content-brainstorm.png" alt={t('contentProductionPage.placeholders.brainstorm')} className="gallery-img" loading="lazy" />
                         </div>
                     </div>
 
                     {/* Vertical Image - Occupies Right Side 1x3 */}
                     <div className="gallery-item clip-anim delay-1 row-span-3">
                         <div className="photo-placeholder vertical">
-                            <img src="/images/content-creator.png" alt={t('contentProductionPage.placeholders.creator')} className="gallery-img" />
+                            <img src="/images/content-creator.png" alt={t('contentProductionPage.placeholders.creator')} className="gallery-img" loading="lazy" />
                         </div>
                     </div>
 
                     {/* Studio Image - Top Right 1x1 */}
                     <div className="gallery-item clip-anim delay-2">
                         <div className="photo-placeholder">
-                            <img src="/images/content-studio.png" alt={t('contentProductionPage.placeholders.studio')} className="gallery-img" />
+                            <img src="/images/content-studio.png" alt={t('contentProductionPage.placeholders.studio')} className="gallery-img" loading="lazy" />
                         </div>
                     </div>
 
                     {/* Equipment Image - Middle Right 1x1 */}
                     <div className="gallery-item clip-anim delay-3">
                         <div className="photo-placeholder">
-                            <img src="/images/content-equipment.png" alt={t('contentProductionPage.placeholders.equipment')} className="gallery-img" />
+                            <img src="/images/content-equipment.png" alt={t('contentProductionPage.placeholders.equipment')} className="gallery-img" loading="lazy" />
                         </div>
                     </div>
 
                     {/* Two small images horizontally under the first large image (Row 3, Col 1 & 2) */}
                     <div className="gallery-item clip-anim delay-4">
                         <div className="photo-placeholder">
-                            <img src="/images/media-small-1.png" alt="" className="gallery-img" />
+                            <img src="/images/media-small-1.png" alt="" className="gallery-img" loading="lazy" />
                         </div>
                     </div>
                     <div className="gallery-item clip-anim delay-5">
                         <div className="photo-placeholder">
-                            <img src="/images/media-small-2.png" alt="" className="gallery-img" />
+                            <img src="/images/media-small-2.png" alt="" className="gallery-img" loading="lazy" />
                         </div>
                     </div>
                 </div>

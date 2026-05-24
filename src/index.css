@@ -35,13 +35,29 @@
   --transition-premium: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.loading-lock {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
 body {
   font-family: 'Outfit', 'Cairo', sans-serif;
-  background: var(--deep-blue);
+  background: #03050e;
   color: var(--white);
   overflow-x: hidden;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  background: radial-gradient(circle at 50% -20%, #132a6b 0%, #070b1e 60%, #03050e 100%) no-repeat;
+  background-size: cover;
+  pointer-events: none;
+  will-change: transform;
 }
 
 a {
@@ -493,4 +509,18 @@ h1, h2, h3, h4, h5, h6 {
 .spotlight-hover:hover::before {
   opacity: 1;
 }
+
+/* ── Global Section Background Reset (Reveals Fixed Body Gradient) ── */
+.hero,
+.why-choose-us,
+.partners,
+.services,
+.contact-section,
+.prog-page,
+.creative-page,
+.marketing-page,
+.ip-page {
+  background: transparent !important;
+}
+
 

@@ -16,7 +16,7 @@ const PageTrade = () => {
             <div className="creative-grid">
                 <div className="grid-item slide-in-left">
                     <div className="photo-placeholder">
-                        <img src="/images/trade-million.png" alt={t('pageTradePage.millionTitle')} className="trade-img" />
+                        <img src="/images/trade-million.png" alt={t('pageTradePage.millionTitle')} className="trade-img" loading="lazy" />
                     </div>
                     <div className="item-details">
                         <h3>{t('pageTradePage.millionTitle')}</h3>
@@ -26,7 +26,7 @@ const PageTrade = () => {
 
                 <div className="grid-item slide-in-bottom delay-1">
                     <div className="photo-placeholder">
-                        <img src="/images/trade-protection.png" alt={t('pageTradePage.protectionTitle')} className="trade-img" />
+                        <img src="/images/trade-protection.png" alt={t('pageTradePage.protectionTitle')} className="trade-img" loading="lazy" />
                     </div>
                     <div className="item-details">
                         <h3>{t('pageTradePage.protectionTitle')}</h3>
@@ -36,7 +36,7 @@ const PageTrade = () => {
 
                 <div className="grid-item slide-in-right delay-2">
                     <div className="photo-placeholder">
-                        <img src="/images/trade-support.png" alt={t('pageTradePage.supportTitle')} className="trade-img" />
+                        <img src="/images/trade-support.png" alt={t('pageTradePage.supportTitle')} className="trade-img" loading="lazy" />
                     </div>
                     <div className="item-details">
                         <h3>{t('pageTradePage.supportTitle')}</h3>

@@ -18,7 +18,7 @@ const Footer = () => {
                     {/* Brand */}
                     <div className="footer__brand">
                         <div className="footer__logo">
-                            <img src={logoImg} alt="SCC Media Group" className="footer__logo-img" />
+                            <img src={logoImg} alt="SCC Media Group" className="footer__logo-img" loading="lazy" />
                         </div>
                         <p className="footer__brand-desc">
                             {t('footer.brandDesc')}

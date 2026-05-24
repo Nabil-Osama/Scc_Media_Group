@@ -39,32 +39,51 @@
     overflow: hidden;
 }
 
-/* Animated Border Effect */
-.stage-card::after {
-    content: '';
+/* GPU-Accelerated Rotating Glowing Border */
+.stage-card-border-beam-container {
     position: absolute;
-    inset: 0;
+    inset: -1.5px;
     border-radius: inherit;
-    padding: 1.5px;
-    background: linear-gradient(
-        var(--angle, 135deg),
-        transparent 20%,
-        var(--vibrant-blue),
-        transparent 80%
-    );
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    -webkit-mask-composite: xor;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
     opacity: 0;
     transition: opacity 0.5s ease;
-    pointer-events: none;
+    -webkit-mask:
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    mask:
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
 }
 
-@property --angle {
-    syntax: '<angle>';
-    initial-value: 135deg;
-    inherits: false;
+.stage-card:hover .stage-card-border-beam-container {
+    opacity: 1;
+}
+
+.stage-card-border-beam {
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 400%;
+    height: 400%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 50%,
+        var(--vibrant-blue) 80%,
+        rgba(255, 255, 255, 0.3) 90%,
+        var(--vibrant-blue) 98%,
+        transparent 100%
+    );
+    animation: stage-card-border-rotate 4s linear infinite;
+    will-change: transform;
+}
+
+@keyframes stage-card-border-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .stage-card:hover {
@@ -72,15 +91,7 @@
     background: rgba(26, 115, 232, 0.08);
     border-color: rgba(26, 115, 232, 0.3);
     box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
-}
-
-.stage-card:hover::after {
-    opacity: 1;
-    animation: rotate-beam 4s linear infinite;
-}
-
-@keyframes rotate-beam {
-    to { --angle: 495deg; }
+    will-change: transform, box-shadow;
 }
 
 .stage-icon {

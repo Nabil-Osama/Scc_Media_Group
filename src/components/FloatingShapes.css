@@ -4,6 +4,7 @@
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+  will-change: transform;
 }
 
 /* Circles */
@@ -12,6 +13,7 @@
   border-radius: 50%;
   border: 1px solid;
   opacity: 0.08;
+  will-change: transform, opacity;
 }
 
 .floating-shapes__circle--1 {
@@ -47,6 +49,7 @@
   width: 0;
   height: 0;
   opacity: 0.1;
+  will-change: transform, opacity;
 }
 
 .floating-shapes__triangle--1 {
@@ -84,6 +87,7 @@
   border-radius: 50%;
   background: var(--vibrant-blue);
   opacity: 0.15;
+  will-change: transform, opacity;
 }
 
 .floating-shapes__dot--1 {
@@ -115,6 +119,7 @@
   position: absolute;
   border: 2px solid;
   opacity: 0.08;
+  will-change: transform, opacity;
 }
 
 .floating-shapes__square--1 {

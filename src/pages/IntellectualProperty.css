@@ -1,6 +1,15 @@
+/* ===== Intellectual Property & Security Page — Futuristic Redesign ===== */
+
 .ip-page {
+    padding-top: 140px;
     position: relative;
-    background: var(--deep-blue);
+    overflow: hidden;
+}
+
+/* ── Page Header ── */
+.creative-header {
+    text-align: center;
+    margin-bottom: 60px;
 }
 
 .ip-page .header-content h1 {
@@ -10,8 +19,26 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin: 0 0 20px 0;
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.25;
+    position: relative;
+    display: inline-block;
 }
 
+.ip-page .header-content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 400;
+}
+
+/* Glitch Effect */
 .glitch-effect {
     position: relative;
 }
@@ -25,6 +52,10 @@
     width: 100%;
     height: 100%;
     opacity: 0.8;
+    background: inherit;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .glitch-effect::before {
@@ -50,147 +81,490 @@
     100% { clip: rect(84px, 9999px, 17px, 0); }
 }
 
+/* ── Content Layout ── */
 .ip-content {
     display: flex;
     flex-direction: column;
-    gap: 80px;
-    max-width: 1100px;
-    margin: 0 auto 80px;
+    gap: 75px;
+    max-width: 1200px;
+    margin: 80px auto 100px;
+    padding: 0 24px;
 }
 
-.ip-feature {
+/* ── Premium Glassmorphic Security Card ── */
+.ip-card {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 50px;
-    position: relative;
+    justify-content: space-between;
+    gap: 70px;
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 36px;
+    padding: 55px;
+    box-shadow: 
+        0 30px 70px rgba(0, 0, 0, 0.45),
+        inset 0 0 0 1.5px rgba(255, 255, 255, 0.02);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.5s ease,
+                box-shadow 0.5s ease;
+    width: 100%;
 }
 
-.ip-feature.reverse {
+.ip-card--reverse {
     flex-direction: row-reverse;
 }
 
-.hologram-placeholder {
-    width: 100%;
-    max-width: 400px;
-    aspect-ratio: 1 / 1;
-    background: var(--glass-bg);
-    border: 1px solid var(--vibrant-blue);
-    border-radius: 50%;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 50px rgba(26, 115, 232, 0.2) inset, 0 0 30px rgba(26, 115, 232, 0.4);
+.ip-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.09);
+    border-bottom: 2px solid var(--card-accent);
+    box-shadow: 
+        0 35px 80px rgba(0, 0, 0, 0.55),
+        0 0 35px color-mix(in srgb, var(--card-accent) 15%, transparent);
+}
+
+/* ── Hologram Projection visual ── */
+.ip-card__visual {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     flex-shrink: 0;
 }
 
-.ip-img {
+.hologram-container {
+    position: relative;
+    width: 310px;
+    height: 310px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Concentric rotating tech rings */
+.hologram-ring {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hologram-ring--outer {
+    width: 340px;
+    height: 340px;
+    border: 1.5px dashed rgba(26, 115, 232, 0.12);
+    border-top-color: var(--card-accent);
+    animation: ip-spin-clockwise 30s linear infinite;
+}
+
+.hologram-ring--inner {
+    width: 290px;
+    height: 290px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-bottom: 2px dashed var(--card-accent);
+    opacity: 0.6;
+    animation: ip-spin-counter 18s linear infinite;
+}
+
+@keyframes ip-spin-clockwise {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes ip-spin-counter {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+/* Moving vertical laser scanner line */
+.hologram-scan-line {
+    position: absolute;
+    width: 80%;
+    height: 3.5px;
+    background: linear-gradient(90deg, transparent, var(--card-accent), transparent);
+    box-shadow: 
+        0 0 15px var(--card-accent),
+        0 0 6px var(--card-accent);
+    z-index: 6;
+    left: 10%;
+    border-radius: 50%;
+    animation: ip-laser-scan 4s ease-in-out infinite alternate;
+}
+
+@keyframes ip-laser-scan {
+    0% { top: 15%; opacity: 0.3; }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { top: 85%; opacity: 0.3; }
+}
+
+/* Hologram Frame & Image */
+.hologram-frame {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+    background: #03040c;
+    box-shadow: 
+        0 0 35px rgba(0, 0, 0, 0.8),
+        inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.hologram-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 40%, rgba(3, 4, 12, 0.65) 90%);
+    pointer-events: none;
+    z-index: 4;
+}
+
+.hologram-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%;
-    z-index: 5;
-    transition: transform 0.5s ease;
+    display: block;
+    opacity: 0.85;
+    transition: transform 0.6s ease;
+    filter: saturate(1.1) contrast(1.05);
 }
 
-.ip-feature:hover .ip-img {
-    transform: scale(1.05);
+.ip-card:hover .hologram-image {
+    transform: scale(1.06);
+    opacity: 0.95;
 }
 
-.hologram-scan {
+.hologram-base-glow {
     position: absolute;
-    left: 0;
-    right: 0;
-    top: -20%;
-    height: 20%;
-    background: linear-gradient(to bottom, transparent, var(--vibrant-blue), transparent);
-    animation: scan 3s linear infinite;
-}
-
-.hologram-placeholder::after {
-    content: '';
-    position: absolute;
-    inset: -5px;
-    border: 2px dashed rgba(56, 189, 248, 0.4);
+    bottom: -15px;
+    width: 180px;
+    height: 30px;
     border-radius: 50%;
-    animation: rotate 20s linear infinite;
+    background: radial-gradient(ellipse at center, var(--card-accent), transparent 70%);
+    opacity: 0.25;
+    filter: blur(5px);
+    z-index: 1;
+    animation: ip-base-pulse 3s infinite alternate;
 }
 
-.feature-text {
+@keyframes ip-base-pulse {
+    0% { transform: scale(0.9); opacity: 0.15; }
+    100% { transform: scale(1.1); opacity: 0.3; }
+}
+
+/* ── Content Details Side ── */
+.ip-card__details {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: right; /* RTL align */
 }
 
-.feature-text h3 {
-    font-size: 2.2rem;
-    color: #f0f9ff;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+.protocol-indicator {
+    font-family: monospace;
+    font-size: 0.72rem;
+    color: var(--card-accent);
+    letter-spacing: 2.5px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    opacity: 0.8;
 }
 
-.feature-text p {
-    font-size: 1.15rem;
-    color: #94a3b8;
+.details-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
+    justify-content: flex-start;
+    flex-direction: row-reverse; /* For RTL placing icon at right side of title */
+}
+
+.details-icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+    background: color-mix(in srgb, var(--card-accent) 15%, transparent);
+    border: 1px solid color-mix(in srgb, var(--card-accent) 25%, transparent);
+    color: var(--card-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    flex-shrink: 0;
+    transition: transform 0.4s ease;
+}
+
+.ip-card:hover .details-icon-wrap {
+    transform: scale(1.08) rotate(5deg);
+}
+
+.details-header h3 {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--white);
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+}
+
+.details-desc {
+    font-size: 0.98rem;
     line-height: 1.8;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0 0 24px 0;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 400;
+    max-width: 95%;
 }
 
+/* Bullet points list */
+.details-points {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+}
+
+.details-point {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    flex-direction: row-reverse; /* RTL bullet point placement */
+    justify-content: flex-end;
+}
+
+.point-icon {
+    color: var(--card-accent);
+    font-size: 1.1rem;
+    filter: drop-shadow(0 0 5px var(--card-accent));
+    flex-shrink: 0;
+}
+
+/* ── Shield Banner bottom ── */
 .ip-shield-banner {
+    position: relative;
+    border-radius: 36px;
+    padding: 70px 50px;
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-top: 2px solid var(--vibrant-blue);
+    overflow: hidden;
     text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(0deg, rgba(2, 6, 23, 1) 0%, rgba(15, 23, 42, 0) 100%);
-    border-top: 1px solid rgba(56, 189, 248, 0.2);
+    max-width: 960px;
+    margin: 40px auto 120px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.shield-icon {
-    font-size: 5rem;
-    margin-bottom: 20px;
-    display: inline-block;
+.shield-banner-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(26, 115, 232, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.shield-icon-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: rgba(26, 115, 232, 0.1);
+    border: 1.5px solid rgba(26, 115, 232, 0.3);
+    margin-bottom: 24px;
+    box-shadow: 0 0 30px rgba(26, 115, 232, 0.15);
+    z-index: 2;
+    transition: transform 0.4s ease;
+}
+
+.ip-shield-banner:hover .shield-icon-container {
+    transform: scale(1.08) rotate(5deg);
+}
+
+.shield-icon-svg {
+    font-size: 2.8rem;
+    color: var(--vibrant-blue);
+    filter: drop-shadow(0 0 10px rgba(26, 115, 232, 0.4));
 }
 
 .ip-shield-banner h2 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
+    font-weight: 800;
     color: #fff;
-    margin-bottom: 40px;
+    margin: 0 0 16px 0;
+    font-family: 'Cairo', sans-serif;
+    z-index: 2;
 }
 
+.shield-banner-desc {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 600px;
+    margin: 0 0 35px 0;
+    font-family: 'Cairo', sans-serif;
+    z-index: 2;
+}
+
+/* Call to action button with magnetic glow */
 .ip-shield-banner .creative-btn {
-    background: #38bdf8;
-    color: #fff;
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+    position: relative;
+    z-index: 2;
+    background: var(--vibrant-blue);
+    color: var(--white);
+    border: none;
+    padding: 16px 45px;
+    border-radius: 16px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.08rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(26, 115, 232, 0.45);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .ip-shield-banner .creative-btn:hover {
-    background: #0ea5e9;
-    box-shadow: 0 0 40px rgba(56, 189, 248, 0.8);
+    background: #2581f5;
+    box-shadow: 
+        0 0 30px rgba(26, 115, 232, 0.55),
+        0 15px 35px rgba(26, 115, 232, 0.35);
+    transform: translateY(-3px);
 }
 
-@keyframes scan {
-    0% { transform: translateY(-100%); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(600%); opacity: 0; }
+.ip-shield-banner .creative-btn:active {
+    transform: translateY(-1px);
 }
 
-@keyframes rotate {
-    100% { transform: rotate(360deg); }
-}
+/* ── Responsive ── */
 
-.slide-up-anim {
-    animation: slideUpFade 1s cubic-bezier(0.19, 1, 0.22, 1) both;
+@media (max-width: 1024px) {
+    .ip-page .header-content h1 {
+        font-size: 3.8rem;
+    }
+    
+    .ip-card {
+        gap: 40px;
+        padding: 40px;
+    }
+    
+    .hologram-container {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .hologram-ring--outer {
+        width: 275px;
+        height: 275px;
+    }
+    
+    .hologram-ring--inner {
+        width: 235px;
+        height: 235px;
+    }
+    
+    .hologram-frame {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .details-header h3 {
+        font-size: 1.55rem;
+    }
 }
-
-@keyframes slideUpFade {
-    0% { opacity: 0; transform: translateY(50px) scale(0.95); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
-}
-
 
 @media (max-width: 900px) {
-    .ip-feature, .ip-feature.reverse {
+    .ip-page {
+        padding-top: 100px;
+    }
+    
+    .ip-page .header-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .ip-page .header-content p {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+    
+    .ip-content {
+        margin: 50px auto 70px;
+        gap: 45px;
+    }
+    
+    .ip-card, .ip-card--reverse {
         flex-direction: column;
+        gap: 35px;
+        padding: 30px;
+        border-radius: 28px;
         text-align: center;
     }
-    .hologram-placeholder {
-        max-width: 300px;
+    
+    .ip-card__details {
+        text-align: center;
+        align-items: center;
+    }
+    
+    .details-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .details-desc {
+        max-width: 100%;
+    }
+    
+    .details-points {
+        align-items: center;
+        width: 100%;
+        max-width: 380px;
+    }
+    
+    .details-point {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        width: 100%;
+    }
+    
+    .ip-shield-banner {
+        padding: 45px 24px;
+        border-radius: 28px;
+        margin: 30px 24px 80px;
+    }
+    
+    .ip-shield-banner h2 {
+        font-size: 1.85rem;
+    }
+    
+    .shield-banner-desc {
+        font-size: 0.95rem;
+        margin-bottom: 25px;
+    }
+    
+    .ip-shield-banner .creative-btn {
+        padding: 14px 35px;
+        font-size: 0.98rem;
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
     }
 }

@@ -1,4 +1,4 @@
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube, FaTiktok } from 'react-icons/fa'
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebookF } from 'react-icons/fa'
 import { useTranslation } from 'react-i18next'
 import logoImg from '../assets/logo.jpeg'
 import './Footer.css'
@@ -24,12 +24,7 @@ const Footer = () => {
                             {t('footer.brandDesc')}
                         </p>
                         <div className="footer__socials">
-                            <a href="#" className="footer__social" aria-label="Facebook"><FaFacebookF /></a>
-                            <a href="#" className="footer__social" aria-label="Instagram"><FaInstagram /></a>
-                            <a href="#" className="footer__social" aria-label="Twitter"><FaTwitter /></a>
-                            <a href="#" className="footer__social" aria-label="LinkedIn"><FaLinkedinIn /></a>
-                            <a href="#" className="footer__social" aria-label="YouTube"><FaYoutube /></a>
-                            <a href="#" className="footer__social" aria-label="TikTok"><FaTiktok /></a>
+                            <a href="https://www.facebook.com/Sccmediagroup/" target="_blank" rel="noopener noreferrer" className="footer__social" aria-label="Facebook"><FaFacebookF /></a>
                         </div>
                     </div>
 

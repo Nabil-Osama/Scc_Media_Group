@@ -19,18 +19,7 @@ const Hero = () => {
     useMagneticButton(primaryBtnRef)
     useMagneticButton(secondaryBtnRef)
 
-    // Helper function to colorize individual letters for matching logo style
-    const renderStyledText = (text, blueIndices) => {
-        return text.split('').map((char, index) => {
-            if (char === ' ') return <span key={index}> </span>;
-            const isBlue = blueIndices.includes(index);
-            return (
-                <span key={index} className={isBlue ? 'hero__char--blue' : 'hero__char--white'}>
-                    {char}
-                </span>
-            );
-        });
-    };
+
 
     return (
         <section className="hero" ref={containerRef}>
@@ -51,14 +40,16 @@ const Hero = () => {
                         {t('hero.badge')}
                     </div>
                     <h1 className="hero__title">
-                        <span className="hero__title-main">
-                            <span className="hero__logo-scc">
-                                {renderStyledText(t('hero.title_part1'), [0, 1])}
-                            </span>
-                            <span className="hero__title-highlight">
-                                {renderStyledText(t('hero.title_highlight'), [2, 8])}
-                            </span>
-                        </span>
+                        <div className="hero__logo-custom">
+                            <div className="hero__logo-scc-custom">
+                                <span className="hero__logo-s">S</span>
+                                <span className="hero__logo-c1">C</span>
+                                <span className="hero__logo-c2">C</span>
+                            </div>
+                            <div className="hero__logo-sub-custom">
+                                MEDIA GR<span className="hero__logo-o">O</span>UP
+                            </div>
+                        </div>
                         <span className="hero__title-sub">{t('hero.title_part2')}</span>
                     </h1>
                     <p className="hero__description">

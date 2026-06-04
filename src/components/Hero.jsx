@@ -41,12 +41,12 @@ const Hero = () => {
                     </div>
                     <h1 className="hero__title">
                         <div className="hero__logo-custom">
-                            <div className="hero__logo-scc-custom">
+                            <div className="hero__logo-scc-custom" dir="ltr">
                                 <span className="hero__logo-s">S</span>
                                 <span className="hero__logo-c1">C</span>
                                 <span className="hero__logo-c2">C</span>
                             </div>
-                            <div className="hero__logo-sub-custom">
+                            <div className="hero__logo-sub-custom" dir="ltr">
                                 MEDIA GR<span className="hero__logo-o">O</span>UP
                             </div>
                         </div>

@@ -29,7 +29,8 @@
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
     padding: 40px;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     transition: var(--transition-premium);
 }
 

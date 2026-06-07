@@ -151,64 +151,24 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 10px;
+  margin-bottom: 30px; /* Increased margin */
 }
 
-.hero__logo-scc-custom {
-  display: flex;
-  align-items: center;
-  font-size: 9.5rem;
-  font-weight: 900;
-  font-style: italic;
-  line-height: 0.8;
-  user-select: none;
-  margin-bottom: 25px;
-}
-
-.hero__logo-s {
-  color: #1573b7;
-  position: relative;
-  z-index: 10;
-  transform: translateX(0.05em);
-  text-shadow: 0 0 20px rgba(21, 115, 183, 0.4);
-}
-
-.hero__logo-c1 {
-  color: #1573b7;
-  position: relative;
-  z-index: 20;
-  text-shadow: 0 0 20px rgba(21, 115, 183, 0.4);
-}
-
-.hero__logo-c2 {
-  color: var(--white);
-  position: relative;
-  z-index: 30;
-  transform: translateX(-0.1em);
-  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.6));
-}
-
-.hero__logo-sub-custom {
-  color: var(--white);
-  font-weight: 700;
-  font-size: 2.2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.4em;
-  padding-left: 0.4em;
-  line-height: 1;
-}
-
-.hero__logo-o {
-  color: #1573b7;
-  text-shadow: 0 0 15px rgba(21, 115, 183, 0.4);
+.hero__main-logo-img {
+  width: 100%;
+  max-width: 400px; /* Slightly smaller for better balance */
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .hero__title-sub {
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
   display: block;
-  margin-top: 15px;
+  margin-top: 5px; /* Adjusting gap between logo and sub-title */
+  margin-bottom: 20px;
   line-height: 1.6;
   max-width: 600px;
 }
@@ -553,14 +513,8 @@
     align-items: center;
   }
 
-  .hero__logo-scc-custom {
-    font-size: 6.5rem;
-    margin-bottom: 15px;
-  }
-
-  .hero__logo-sub-custom {
-    font-size: 1.6rem;
-    padding-left: 0.4em;
+  .hero__main-logo-img {
+    max-width: 320px;
   }
 
   .hero__title-sub {
@@ -592,11 +546,7 @@
 }
 
 @media (max-width: 480px) {
-  .hero__logo-scc-custom {
-    font-size: 4.8rem;
-  }
-
-  .hero__logo-sub-custom {
-    font-size: 1.2rem;
+  .hero__main-logo-img {
+    max-width: 280px;
   }
 }

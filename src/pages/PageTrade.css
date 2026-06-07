@@ -36,12 +36,13 @@
 }
 
 .grid-item {
-    background: var(--glass-bg);
+    background: rgba(10, 15, 30, 0.85);
     border-radius: var(--radius-lg);
     padding: 30px;
     border: 1px solid var(--glass-border);
     transition: var(--transition-premium);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .grid-item:hover {

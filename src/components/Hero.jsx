@@ -12,12 +12,10 @@ const Hero = () => {
     const primaryBtnRef = useRef(null)
     const secondaryBtnRef = useRef(null)
 
-    const { useHeroAnimation, useMagneticButton } = useGsapAnimations()
+    const { useHeroAnimation } = useGsapAnimations()
 
     // Initialize animations
     useHeroAnimation(containerRef, textRef, visualRef)
-    useMagneticButton(primaryBtnRef)
-    useMagneticButton(secondaryBtnRef)
 
 
 
@@ -41,14 +39,11 @@ const Hero = () => {
                     </div>
                     <h1 className="hero__title">
                         <div className="hero__logo-custom">
-                            <div className="hero__logo-scc-custom" dir="ltr">
-                                <span className="hero__logo-s">S</span>
-                                <span className="hero__logo-c1">C</span>
-                                <span className="hero__logo-c2">C</span>
-                            </div>
-                            <div className="hero__logo-sub-custom" dir="ltr">
-                                MEDIA GR<span className="hero__logo-o">O</span>UP
-                            </div>
+                            <img 
+                                src="/images/logo.png" 
+                                alt="SCC Media Group Logo" 
+                                className="hero__main-logo-img" 
+                            />
                         </div>
                         <span className="hero__title-sub">{t('hero.title_part2')}</span>
                     </h1>
@@ -56,11 +51,17 @@ const Hero = () => {
                         {t('hero.description')}
                     </p>
                     <div className="hero__cta">
-                        <button className="hero__btn hero__btn--primary" ref={primaryBtnRef}>
+                        <button 
+                            className="hero__btn hero__btn--primary" 
+                            onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                        >
                             <span>{t('hero.primary_cta')}</span>
                             <span className="hero__btn-icon">→</span>
                         </button>
-                        <button className="hero__btn hero__btn--secondary" ref={secondaryBtnRef}>
+                        <button 
+                            className="hero__btn hero__btn--secondary" 
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                        >
                             <FaWhatsapp />
                             <span>{t('hero.secondary_cta')}</span>
                         </button>

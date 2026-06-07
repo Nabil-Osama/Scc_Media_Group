@@ -104,12 +104,12 @@
 }
 
 .prog-showcase-card {
-    background: rgba(255, 255, 255, 0.01);
+    background: rgba(10, 15, 30, 0.85);
     border: 1px solid rgba(255, 255, 255, 0.03);
     border-radius: 28px;
     padding: 35px;
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     display: flex;
     flex-direction: column;
     gap: 25px;
